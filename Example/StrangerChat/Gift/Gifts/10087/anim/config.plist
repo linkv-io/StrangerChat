@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>giftId</key>
+	<string>10087</string>
+	<key>width</key>
+	<integer>360</integer>
+	<key>height</key>
+	<integer>580</integer>
+	<key>bottomY</key>
+	<real>0</real>
+	<key>animations</key>
+	<array>
+		<dict>
+			<key>count</key>
+			<integer>129</integer>
+			<key>duration</key>
+			<real>10.6</real>
+			<key>repeats</key>
+			<integer>1</integer>
+		</dict>
+	</array>
+</dict>
+</plist>

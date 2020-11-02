@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LVRoomVCTest">
+            <connections>
+                <outlet property="anwserStackView" destination="QZa-qa-BMI" id="Ts9-Z8-GVl"/>
+                <outlet property="applyForBeamBtn" destination="vtu-ZU-TuP" id="6SG-nl-CeQ"/>
+                <outlet property="closeRoomBtn" destination="7u1-RV-lBg" id="uQd-vO-1tx"/>
+                <outlet property="uidField" destination="QLw-aa-mRd" id="xnE-gE-9n2"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="XeJ-Y5-kyM">
+                    <rect key="frame" x="0.0" y="817" width="414" height="45"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vtu-ZU-TuP">
+                            <rect key="frame" x="0.0" y="0.0" width="103.5" height="45"/>
+                            <state key="normal" title="上麦">
+                                <color key="titleColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <state key="selected" image="video_off.png"/>
+                            <connections>
+                                <action selector="applyForBeamBtnClick:" destination="-1" eventType="touchUpInside" id="MNZ-d3-Qth"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7u1-RV-lBg">
+                            <rect key="frame" x="103.5" y="0.0" width="103.5" height="45"/>
+                            <state key="normal" title="关闭房间">
+                                <color key="titleColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <state key="selected" image="audio_off.png"/>
+                            <connections>
+                                <action selector="closeRoomBtnClick:" destination="-1" eventType="touchUpInside" id="koV-I8-VTE"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VAJ-RI-t2R">
+                            <rect key="frame" x="207" y="0.0" width="103.5" height="45"/>
+                            <state key="normal" title="Send Gift"/>
+                            <connections>
+                                <action selector="sendGiftBtnClick:" destination="-1" eventType="touchUpInside" id="YL0-Wo-f7v"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y8B-5P-mAw">
+                            <rect key="frame" x="310.5" y="0.0" width="103.5" height="45"/>
+                            <state key="normal" title="下麦"/>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="4jy-JI-Luw"/>
+                    </constraints>
+                </stackView>
+                <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="QZa-qa-BMI">
+                    <rect key="frame" x="0.0" y="64" width="414" height="30"/>
+                    <subviews>
+                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tig-Hr-sdA">
+                            <rect key="frame" x="0.0" y="0.0" width="207" height="30"/>
+                            <state key="normal" title="同意上麦"/>
+                            <connections>
+                                <action selector="anwserBeamBtnClick:" destination="-1" eventType="touchUpInside" id="rHh-wo-rVW"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btz-hs-CG8">
+                            <rect key="frame" x="207" y="0.0" width="207" height="30"/>
+                            <state key="normal" title="拒绝上麦"/>
+                            <connections>
+                                <action selector="anwserBeamBtnClick:" destination="-1" eventType="touchUpInside" id="33K-OI-1SJ"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </stackView>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="rnb-nh-p8m">
+                    <rect key="frame" x="0.0" y="767" width="414" height="40"/>
+                    <subviews>
+                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="afm-In-nwQ" userLabel="进入房间">
+                            <rect key="frame" x="0.0" y="0.0" width="207" height="40"/>
+                            <state key="normal" title="进入房间"/>
+                            <connections>
+                                <action selector="enterRoomBtnClick:" destination="-1" eventType="touchUpInside" id="ynQ-he-EIM"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tEl-Ma-agj" userLabel="离开房间">
+                            <rect key="frame" x="207" y="0.0" width="207" height="40"/>
+                            <state key="normal" title="离开房间"/>
+                            <connections>
+                                <action selector="leaveRoomBtnClick:" destination="-1" eventType="touchUpInside" id="dgH-ag-GD0"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="7eI-gT-xEN"/>
+                    </constraints>
+                </stackView>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QLw-aa-mRd">
+                    <rect key="frame" x="20" y="114" width="264" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="krC-mw-Vpy"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ywQ-3q-CNd">
+                    <rect key="frame" x="294" y="114" width="100" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="Atj-dz-xXV"/>
+                        <constraint firstAttribute="height" constant="40" id="KBl-zl-uuk"/>
+                    </constraints>
+                    <state key="normal" title="下麦"/>
+                    <connections>
+                        <action selector="kickBeamOffBtnClick:" destination="-1" eventType="touchUpInside" id="RPf-RB-VAY"/>
+                        <action selector="stopBeamBtnClick:" destination="-1" eventType="touchUpInside" id="eUV-mZ-xvy"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="rnb-nh-p8m" secondAttribute="trailing" id="0ym-2C-Jq9"/>
+                <constraint firstItem="ywQ-3q-CNd" firstAttribute="leading" secondItem="QLw-aa-mRd" secondAttribute="trailing" constant="10" id="9No-0I-xm3"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="XeJ-Y5-kyM" secondAttribute="trailing" id="DMB-rC-yv1"/>
+                <constraint firstItem="XeJ-Y5-kyM" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="FJW-Is-UyT"/>
+                <constraint firstItem="ywQ-3q-CNd" firstAttribute="top" secondItem="QLw-aa-mRd" secondAttribute="top" id="Peb-iB-rdA"/>
+                <constraint firstItem="QZa-qa-BMI" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="Uy1-Zk-6nA"/>
+                <constraint firstItem="rnb-nh-p8m" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="V82-q6-hWJ"/>
+                <constraint firstItem="QZa-qa-BMI" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="20" id="WXf-GS-f3X"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="ywQ-3q-CNd" secondAttribute="trailing" constant="20" id="XXQ-B2-5hB"/>
+                <constraint firstItem="XeJ-Y5-kyM" firstAttribute="top" secondItem="rnb-nh-p8m" secondAttribute="bottom" constant="10" id="aLL-Ez-Ou8"/>
+                <constraint firstItem="QLw-aa-mRd" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="lam-03-1zd"/>
+                <constraint firstItem="QLw-aa-mRd" firstAttribute="top" secondItem="QZa-qa-BMI" secondAttribute="bottom" constant="20" id="qkU-nm-17L"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="XeJ-Y5-kyM" secondAttribute="bottom" id="sjb-H6-XXi"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="QZa-qa-BMI" secondAttribute="trailing" id="uBF-sQ-2p6"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+            <point key="canvasLocation" x="137.68115942028987" y="105.80357142857143"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="audio_off.png" width="85.333335876464844" height="85.333335876464844"/>
+        <image name="video_off.png" width="85.333335876464844" height="85.333335876464844"/>
+    </resources>
+</document>

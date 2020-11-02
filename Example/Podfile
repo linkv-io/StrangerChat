@@ -1,0 +1,19 @@
+source 'https://github.com/CocoaPods/Specs.git'
+source 'https://cdn.cocoapods.org/'
+source  'https://gitbj.joyme.sg/liveme-btb/LinkV_Podspec.git'
+
+use_frameworks!
+
+platform :ios, '9.0'
+
+target 'StrangerChat_Example' do
+  pod 'StrangerChat', :path => '../'
+  pod 'Masonry'
+  pod 'IQKeyboardManager'
+
+  target 'StrangerChat_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
