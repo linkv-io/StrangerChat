@@ -2,9 +2,9 @@
 
 本文介绍如何使用StrangerChat视频通话SDK快速实现视频通话
 
-## 1、示例项目
+## 1、示例界面
 
-StrangerChat在GitHub上提供开源的实时视频通话示例项目[StrangerChatDemo](https://github.com/linkv-io/StrangerChat)。在实现相关功能前，你可以下载并查看源码。
+以下为使用StrangerChat实现的一对一视频通话效果
 
 ![](https://github.com/linkv-io/StrangerChat/blob/master/Snapshot/StrangerChat.gif?raw=true)
 
