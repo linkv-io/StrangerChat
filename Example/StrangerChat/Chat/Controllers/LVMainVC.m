@@ -25,8 +25,8 @@
 #import "GSPChatMessage.h"
 
 // linkvim 线上
-static NSString *your_app_id = @"slFNjAcjvxhfEdTjkcwuqcVgMHXTkElT";
-static NSString *your_app_sign = @"2852FAC5408BBBCF15002059F883C52C13D69DCA21D8ECC26C396FF7391BF3A1C369FC2F231B2F9864CEDF66120AA8CB7214B0B349270CEDA7C8F309F4942CF71AEE1A3B0D3D318D83F121C4C25C53E7446F5ED3495527471EFF6EE129B35CE2571EB360011A426B28A989EE1F5263719CF24E2CABBE36F28D6B80F2683BF5BA210CC7728EAB87458F9E01DB178990A27042B787EC02B9A55E4172A030383B51C0D5E06A32E0BED3400C7A0E9208308E";
+static NSString *your_app_id = @"request_your_app_id_from_linkv";
+static NSString *your_app_sign = @"request_your_app_sign_from_linkv";
 #define RGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 static NSString *linkv_query_user_info = @"linkv_query_user_info";
 static NSString *linkv_anwser_user_info = @"linkv_anwser_user_info";
