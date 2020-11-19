@@ -64,8 +64,8 @@ static int smallH = 170;
     [self.engine setRoomDelegate:self];
     self.navigationController.interactivePopGestureRecognizer.enabled = NO;
     
-    [self.engine setBeautyLevel:0.8];
-    [self.engine setBrightLevel:0.8];
+    [self.engine setBeautyLevel:0.5];
+    [self.engine setBrightLevel:0.5];
     [self.engine setToneLevel:0.5];
     
     if (!self.isCaller) {

@@ -2,6 +2,8 @@
 
 本文介绍如何使用StrangerChat视频通话SDK快速实现视频通话
 
+**技术交流及商务合作欢迎进QQ群交流：1160896626**
+
 ## 1、示例界面
 
 以下为使用StrangerChat实现的一对一视频通话效果
@@ -75,7 +77,7 @@ pod 'StrangerChat'
 
 ## 4、测试集成
 
-导入 **<StrangerChat/StrangerChat.h>** 头文件，然后 执行 **createEngine** ，运行如果没问题，那么代表集成成功。
+导入 **<StrangerChat/StrangerChat.h>** 头文件，然后执行 **createEngine** ，运行如果没问题，那么代表集成成功。
 
 ```
 #import <StrangerChat/StrangerChat.h>
@@ -90,3 +92,4 @@ pod 'StrangerChat'
     } delegate:self];
 }
 ```
+
