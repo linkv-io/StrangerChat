@@ -6,6 +6,10 @@
 
 ## 1、示例界面
 
+StrangerChat包含有音视频推拉流及IM通讯的能力，除此之外还封装了针对陌生人社交场景需要用到的一些api
+
+该Demo里面包含了呼叫、接听、连麦、送礼、礼物动效等在陌生人社交中的常用功能
+
 以下为使用StrangerChat实现的一对一视频通话效果
 
 ![](https://github.com/linkv-io/StrangerChat/blob/master/Snapshot/StrangerChat.gif?raw=true)
