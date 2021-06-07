@@ -73,7 +73,7 @@ static int linkv_call_overtime = 20;
     UIImageView *iconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:self.user.avatar]];
     iconView.layer.borderWidth = 1;
     iconView.layer.borderColor = [UIColor whiteColor].CGColor;
-    iconView.layer.cornerRadius = 63;
+    iconView.layer.cornerRadius = 50;
     iconView.clipsToBounds = YES;
     
     UILabel *nameLabel = [UILabel new];
