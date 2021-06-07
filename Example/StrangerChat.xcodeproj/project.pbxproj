@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		207CCD17266E17DA0084541B /* LVMsgCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 207CCD15266E17DA0084541B /* LVMsgCell.m */; };
+		207CCD18266E17DA0084541B /* LVMsgListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 207CCD16266E17DA0084541B /* LVMsgListView.m */; };
 		20909F602520CDBB00CCFE49 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 20909F5C2520CDBB00CCFE49 /* MBProgressHUD.m */; };
 		20909F612520CDBB00CCFE49 /* MBProgressHUD+LM.m in Sources */ = {isa = PBXBuildFile; fileRef = 20909F5F2520CDBB00CCFE49 /* MBProgressHUD+LM.m */; };
 		20909F652521950100CCFE49 /* reject@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20909F632521950000CCFE49 /* reject@3x.png */; };
@@ -96,6 +98,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		207CCD13266E17DA0084541B /* LVMsgListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LVMsgListView.h; sourceTree = "<group>"; };
+		207CCD14266E17DA0084541B /* LVMsgCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LVMsgCell.h; sourceTree = "<group>"; };
+		207CCD15266E17DA0084541B /* LVMsgCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LVMsgCell.m; sourceTree = "<group>"; };
+		207CCD16266E17DA0084541B /* LVMsgListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LVMsgListView.m; sourceTree = "<group>"; };
 		20909F5C2520CDBB00CCFE49 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		20909F5D2520CDBB00CCFE49 /* MBProgressHUD+LM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+LM.h"; sourceTree = "<group>"; };
 		20909F5E2520CDBB00CCFE49 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
@@ -342,6 +348,10 @@
 		20BEE54E2536DA1A0025AD0D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				207CCD14266E17DA0084541B /* LVMsgCell.h */,
+				207CCD15266E17DA0084541B /* LVMsgCell.m */,
+				207CCD13266E17DA0084541B /* LVMsgListView.h */,
+				207CCD16266E17DA0084541B /* LVMsgListView.m */,
 				20BEE5E925382D130025AD0D /* LVCallCardView.h */,
 				20BEE5EA25382D130025AD0D /* LVCallCardView.m */,
 			);
@@ -741,6 +751,7 @@
 				20E5D2562548038F003A3B3C /* ShakeLabel.m in Sources */,
 				20E5D4F72548038F003A3B3C /* CADisplayLink+FXWeakTarget.m in Sources */,
 				20BEE5CA2537338A0025AD0D /* LVHelper.m in Sources */,
+				207CCD18266E17DA0084541B /* LVMsgListView.m in Sources */,
 				20E5D51E25498742003A3B3C /* LVPresentStaticGiftView.m in Sources */,
 				20E5D2592548038F003A3B3C /* GiftModel.m in Sources */,
 				20BEE5312536A54E0025AD0D /* LVUserModel.m in Sources */,
@@ -763,6 +774,7 @@
 				20E5D4F92548038F003A3B3C /* FXImageDecodeOperation.m in Sources */,
 				20909F602520CDBB00CCFE49 /* MBProgressHUD.m in Sources */,
 				20BEE5EB25382D130025AD0D /* LVCallCardView.m in Sources */,
+				207CCD17266E17DA0084541B /* LVMsgCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

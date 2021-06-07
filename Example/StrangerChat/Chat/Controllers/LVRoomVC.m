@@ -9,7 +9,7 @@
 #import "LVRoomVC.h"
 #import <Masonry/Masonry.h>
 #import "LVCallCardView.h"
-#import "StrangerChat.h"
+
 #import "LVHelper.h"
 #import "LVGiftView.h"
 
@@ -20,6 +20,7 @@
 #import "GSPChatMessage.h"
 
 #import "CALayer+FXAnimationEngine.h"
+#import "LVMsgListView.h"
 
 
 #define RGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
@@ -28,12 +29,12 @@
 static int smallW = 111;
 static int smallH = 170;
 
-@interface LVRoomVC ()<LVRoomDelegate>
+@interface LVRoomVC ()<LVRoomDelegate, UITextFieldDelegate>
 
 @property (nonatomic, weak) UIView *topView;
 @property (nonatomic, weak) UIView *bottomView;
 @property (nonatomic, weak) LVCallCardView *cardView;
-@property (nonatomic, strong) StrangerChat *engine;
+
 
 @property (nonatomic, strong) NSTimer *overTimer; // 呼叫超时
 @property (nonatomic, strong) NSTimer *durationTimer; // 通话时长回调
@@ -52,6 +53,9 @@ static int smallH = 170;
 @property (nonatomic, weak) UIView *meDefaultView;
 @property (nonatomic, weak) UIView *otherDefaultView;
 
+@property (nonatomic, weak) UITextField *textField;
+@property (nonatomic, weak) LVMsgListView *msgListView;
+
 @end
 
 @implementation LVRoomVC
@@ -63,10 +67,12 @@ static int smallH = 170;
     self.engine = [StrangerChat shared];
     [self.engine setRoomDelegate:self];
     self.navigationController.interactivePopGestureRecognizer.enabled = NO;
-    
-    [self.engine setBeautyLevel:0.5];
-    [self.engine setBrightLevel:0.5];
-    [self.engine setToneLevel:0.5];
+
+//    [self.engine setBeautyLevel:0.5];
+//    [self.engine setBrightLevel:0.5];
+//    [self.engine setBeautyLevel:0.8];
+//    [self.engine setBrightLevel:0.8];
+//    [self.engine setToneLevel:0.5];
     
     if (!self.isCaller) {
         [self startVideo];
@@ -84,12 +90,46 @@ static int smallH = 170;
     }
 }
 
+- (void)setupMsgListView {
+    UITextField *textField = [UITextField new];
+    textField.layer.cornerRadius = 20;
+    textField.clipsToBounds = YES;
+    textField.returnKeyType = UIReturnKeySend;
+    textField.delegate = self;
+    textField.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 8, 0)];
+    textField.leftViewMode = UITextFieldViewModeAlways;
+    textField.backgroundColor = [UIColor colorWithRed:32/255.0 green:31/255.0 blue:20/255.0 alpha:0.7];
+    textField.textColor = [UIColor whiteColor];
+    textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"说点什么吧......" attributes:@{NSForegroundColorAttributeName: [UIColor colorWithWhite:1 alpha:0.8]}];
+    self.textField = textField;
+    
+    LVMsgListView *msgListView = [LVMsgListView new];
+    self.msgListView = msgListView;
+    
+    [self.view addSubview:textField];
+    [self.view addSubview:msgListView];
+
+    [textField mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.mas_equalTo(self.bottomView.mas_top).offset(-5);
+        make.leading.equalTo(self.view).offset(20);
+        make.trailing.equalTo(self.view).offset(-20);
+        make.height.mas_equalTo(40);
+    }];
+    
+    [msgListView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.view).offset(20);
+        make.bottom.mas_equalTo(textField.mas_top).offset(-20);
+        make.height.mas_equalTo(150);
+        make.trailing.equalTo(self.view).offset(-smallW - 20);
+    }];
+}
+
 - (void)setupVideoView {
     UIView *videoView = [[UIView alloc] initWithFrame:self.view.bounds];
     UIControl *bigView = [[UIControl alloc] initWithFrame:videoView.bounds];
     CGFloat screenW = CGRectGetWidth([UIScreen mainScreen].bounds);
     CGFloat screenH = CGRectGetHeight([UIScreen mainScreen].bounds);
-    UIControl *smallView = [[UIControl alloc] initWithFrame:CGRectMake(screenW - smallW - 16, screenH - smallH -64, smallW, smallH)];
+    UIControl *smallView = [[UIControl alloc] initWithFrame:CGRectMake(screenW - smallW - 16, screenH - smallH -64 - 40, smallW, smallH)];
     self.bigView = bigView;
     self.smallView = smallView;
     
@@ -314,7 +354,7 @@ static int smallH = 170;
         [weakSelf.engine sendGift:[NSString stringWithFormat:@"%ld", gift.giftId] count:1 uid:@[weakSelf.user.uid] roomId:weakSelf.roomId extra:nil callback:^(int ecode, int rcode, int64_t lvsgid, int64_t smsgid, int64_t stime, LVIMMessage *msg) {
             if (ecode != 0) return;
             
-            [weakSelf showGift:gift];
+            [weakSelf showGift:gift isMe:YES];
         }];
     }];
 }
@@ -343,6 +383,11 @@ static int smallH = 170;
 }
 
 - (void)bigViewClick {
+    if (self.textField.isFirstResponder) {
+        [self.textField resignFirstResponder];
+        return;
+    }
+    
     self.isHideDetail = !self.isHideDetail;
     
     if (self.isHideDetail) {
@@ -354,7 +399,7 @@ static int smallH = 170;
         [self.bottomView mas_remakeConstraints:^(MASConstraintMaker *make) {
             make.leading.trailing.equalTo(self.view);
             make.height.mas_equalTo(50);
-            make.top.equalTo(self.view.mas_bottom);
+            make.top.equalTo(self.view.mas_bottom).offset(215);
         }];
     } else {
         [self.topView mas_remakeConstraints:^(MASConstraintMaker *make) {
@@ -440,7 +485,7 @@ static int smallH = 170;
     
     int gid = [giftId intValue];
     LVGiftModel *gift = [LVHelper shared].gifts[gid];
-    [self showGift: gift];
+    [self showGift: gift isMe:NO];
     
     [[LVHelper shared] changeBalance:-gift.giftPrice];
     
@@ -458,7 +503,7 @@ static int smallH = 170;
     [self.engine stopPlayingStream:uid];
     
     // 关闭房间
-    
+    [self endCall];
 }
 
 /**
@@ -510,10 +555,11 @@ static int smallH = 170;
 - (void)startVideo {
     [self.engine setVideoConfig:Video_Config_720P];
     [self.engine loginRoom:self.myUid roomId:self.roomId isHost:self.isCaller delegate:self];
+    
+    [self setupMsgListView];
 }
 
 - (void)endCall {
-    [self.engine hangupCall:self.user.uid extra:nil callback:nil];
     [self close];
 }
 
@@ -540,22 +586,24 @@ static int smallH = 170;
         UIWindow *window = UIApplication.sharedApplication.keyWindow;
 //        CGFloat topPadding = window.safeAreaInsets.top;
         bottomPadding = window.safeAreaInsets.bottom - 20;
+        if (bottomPadding < 0) bottomPadding = 0;
     }
     
     return bottomPadding;
 }
 
-- (void)showGift:(LVGiftModel *)gift {
+- (void)showGift:(LVGiftModel *)gift isMe:(BOOL)isMe {
     if (gift.isStaticGift) {
-        [self showStaticGift:gift];
+        [self showStaticGift:gift isMe:isMe];
     } else {
         [self playGift:gift];
     }
 }
 
-- (void)showStaticGift:(LVGiftModel *)gift {
+- (void)showStaticGift:(LVGiftModel *)gift isMe:(BOOL)isMe {
     
-    LVUserModel *me = [[LVHelper shared] userFormUid:self.myUid];
+    NSString *sendUid = isMe ? self.myUid : self.user.uid;
+    LVUserModel *me = [[LVHelper shared] userFormUid:sendUid];
     
     // 礼物模型
     GiftModel *giftModel = [[GiftModel alloc] init];
@@ -648,4 +696,28 @@ static int smallH = 170;
     }
 }
 
+#pragma mark - UITextFieldDelegate
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    
+    NSString *content = textField.text;
+    textField.text = nil;
+    __weak typeof(self) weakSelf = self;
+    [self.engine sendRoomMessage:self.roomId content:content complete:^(int ecode, int rcode, int64_t lvsgid, int64_t smsgid, int64_t stime, LVIMMessage *msg) {
+        if (ecode == 0) {
+            [weakSelf.msgListView addMsg:msg];
+        } else {
+            NSLog(@"[Wing] sendRoomMessage error = %@", @(ecode));
+        }
+    }];
+    
+    return content.length > 0;
+}
+
+- (int)onRoomMessageReceive:(LVIMMessage *)msg {
+    [self.msgListView addMsg:msg];
+    
+    return 0;
+}
+
 @end
+

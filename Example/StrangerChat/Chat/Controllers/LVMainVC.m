@@ -23,10 +23,14 @@
 #import "AnimOperation.h"
 #import "AnimOperationManager.h"
 #import "GSPChatMessage.h"
+#import "StrangerChat.h"
+#import "MBProgressHUD.h"
 
 // linkvim 线上
 static NSString *your_app_id = @"slFNjAcjvxhfEdTjkcwuqcVgMHXTkElT";
 static NSString *your_app_sign = @"2852FAC5408BBBCF15002059F883C52C13D69DCA21D8ECC26C396FF7391BF3A1C369FC2F231B2F9864CEDF66120AA8CB7214B0B349270CEDA7C8F309F4942CF71AEE1A3B0D3D318D83F121C4C25C53E7446F5ED3495527471EFF6EE129B35CE2571EB360011A426B28A989EE1F5263719CF24E2CABBE36F28D6B80F2683BF5BA210CC7728EAB87458F9E01DB178990A27042B787EC02B9A55E4172A030383B51C0D5E06A32E0BED3400C7A0E9208308E";
+
+
 #define RGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 static NSString *linkv_query_user_info = @"linkv_query_user_info";
 static NSString *linkv_anwser_user_info = @"linkv_anwser_user_info";
@@ -39,14 +43,15 @@ static int linkv_call_overtime = 20;
 @property (nonatomic, weak) LVCallCardView *callView;
 @property (nonatomic, weak) UIView *lineView;
 @property (nonatomic, weak) UIButton *callBtn;
+@property (nonatomic, weak) UIButton *callBtnForZego;
 @property (nonatomic, weak) UITextField *uidField;
 
 @property (nonatomic, strong) LVUserModel *user;
 @property (nonatomic, strong) LVUserModel *other;
 @property (nonatomic, weak) LVRoomVC *roomVC;
+@property (nonatomic, assign) BOOL isSDKInit;
 
 @property (nonatomic, strong) NSTimer *receiveCallTimeoutTimer;
-
 @end
 
 @implementation LVMainVC
@@ -57,6 +62,7 @@ static int linkv_call_overtime = 20;
     [IQKeyboardManager sharedManager].enable = YES;
     [self initSDK];
     [self setupUI];
+    
 }
 
 #pragma mark - setupUI
@@ -138,7 +144,7 @@ static int linkv_call_overtime = 20;
     
     [iconView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.center.equalTo(iconBg);
-        make.width.height.mas_equalTo(126);
+        make.width.height.mas_equalTo(100);
     }];
     
     [nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -152,10 +158,10 @@ static int linkv_call_overtime = 20;
     }];
     
     [uidField mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(idLabel.mas_bottom).offset(50);
+        make.top.equalTo(idLabel.mas_bottom).offset(40);
         make.centerX.equalTo(self.view);
         make.height.mas_equalTo(40);
-        make.width.mas_equalTo(190);
+        make.width.mas_equalTo(210);
     }];
     
     [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -177,12 +183,22 @@ static int linkv_call_overtime = 20;
 }
 
 #pragma mark - initSDK
-- (void)initSDK {
+
+- (void)checkInitLinkvSdk {
+    
+    __weak typeof(self) weakSelf = self;
     self.engine = [StrangerChat createEngine:your_app_id appKey:your_app_sign completion:^(NSInteger code) {
         if (code == 0) {
+            weakSelf.isSDKInit = YES;
             NSLog(@"SDK init succeed");
         }
+        [MBProgressHUD showMsg:code == 0 ? @"SDK初始化成功" : @"SDK初始化失败"];
     } delegate:self];
+}
+
+- (void)initSDK {
+    
+    [self checkInitLinkvSdk];
     
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     NSString *uid = [ud stringForKey:@"uid"];
@@ -192,7 +208,10 @@ static int linkv_call_overtime = 20;
         [ud setObject:uid forKey:@"uid"];
     }
     self.uid = uid;
+    
     int result = [self.engine loginIM:self.uid delegate:self];
+    self.engine.uid = uid;
+    
     if ( result == 0) {
         self.title = [NSString stringWithFormat:@"uid: %@", self.uid];
     } else {
@@ -213,12 +232,21 @@ static int linkv_call_overtime = 20;
     
     self.lineView.backgroundColor = textField.hasText ? [UIColor blackColor] : RGB(0xcdcdcd);
     self.callBtn.selected = textField.hasText;
+    self.callBtnForZego.selected = textField.hasText;
 }
 
 - (void)callBtnClick:(UIButton *)btn {
     if (!self.uidField.hasText) return;
- 
+    if ([self.uidField.text isEqualToString:self.uid]) return;
+    
+    if(self.isSDKInit) {
+        [MBProgressHUD showMsg:@"SDK初始化中...."];
+        [self checkInitLinkvSdk];
+        return;
+    }
+    
     LVRoomVC *roomVC = [LVRoomVC new];
+    roomVC.engine = self.engine;
     roomVC.user = [[LVHelper shared] userFormUid:self.uidField.text];
     roomVC.isCaller = YES;
     roomVC.myUid = self.uid;
@@ -228,7 +256,7 @@ static int linkv_call_overtime = 20;
     
     [self.navigationController pushViewController:roomVC animated:YES];
     
-    [self.engine call:self.uidField.text isAudio:NO extra:nil callback:nil];
+    [self.engine call:self.uidField.text isAudio:NO extra:[self dictToStr:@{@"isZego":@(NO)}] callback:nil];
     [[LVHelper shared] callRing];
 }
 
@@ -299,7 +327,9 @@ static int linkv_call_overtime = 20;
         [callView dismiss];
         [weakSelf.engine anwserCall:uid accept:isAnwsered isAudio:isAudio extra:nil callback:nil];
         if (!isAnwsered) return;
-        [weakSelf receiveCall:uid isAudio:isAudio];
+        NSDictionary* extraDic = [self strToDict:extra];
+        NSNumber* isZego = extraDic[@"isZego"];
+        [weakSelf receiveCall:uid isAudio:isAudio isZego:[isZego boolValue]];
     }];
     
     self.receiveCallTimeoutTimer = [NSTimer scheduledTimerWithTimeInterval:30 repeats:NO block:^(NSTimer * _Nonnull timer) {
@@ -346,12 +376,14 @@ static int linkv_call_overtime = 20;
     self.callView = nil;
 }
 
-- (void)receiveCall:(NSString *)uid isAudio:(BOOL)isAudio {
+- (void)receiveCall:(NSString *)uid isAudio:(BOOL)isAudio isZego:(BOOL)isZego {
+    
     [[LVHelper shared] stop];
     [self.receiveCallTimeoutTimer invalidate];
     self.receiveCallTimeoutTimer = nil;
     
     LVRoomVC *roomVC = [LVRoomVC new];
+    roomVC.engine = self.engine;
     roomVC.user = [[LVHelper shared] userFormUid:uid];
     roomVC.isCaller = NO;
     roomVC.myUid = self.uid;
@@ -361,4 +393,27 @@ static int linkv_call_overtime = 20;
     [self.navigationController pushViewController:roomVC animated:YES];
 }
 
+#pragma mark - private
+- (NSString *)dictToStr:(NSDictionary *)dict {
+    if (!dict || ![dict isKindOfClass:[NSDictionary class]]) return nil;
+    
+    NSError *error;
+    NSData *data = [NSJSONSerialization dataWithJSONObject:dict options:0 error:&error];
+    if (error || !data) return nil;
+    
+    return [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+}
+
+
+- (NSDictionary *)strToDict:(NSString *)str {
+    if (!str) return nil;
+    
+    NSError *error;
+    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:[str dataUsingEncoding:NSUTF8StringEncoding] options:0 error:&error];
+    if (error || !dict || ![dict isKindOfClass:[NSDictionary class]]) return nil;
+    
+    return dict;
+}
+
 @end
+

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "LVUserModel.h"
+#import "StrangerChat.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -16,11 +17,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) LVUserModel *user;
 @property (nonatomic, assign) BOOL isCaller; // YES:呼叫者 NO:接听者
 @property (nonatomic, copy) NSString *myUid; // 自己的uid
-@property (nonatomic, copy) NSString *roomId; 
+@property (nonatomic, copy) NSString *roomId;
+@property (nonatomic, strong) StrangerChat *engine;
 
 - (int)onAnwserCallReceived:(NSString *)uid accept:(BOOL)accept isAudio:(BOOL)isAudio;
 - (int)onHangupCallReceived:(NSString *)uid;
 
+
 @end
 
 NS_ASSUME_NONNULL_END
+
