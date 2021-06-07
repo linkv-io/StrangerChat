@@ -33,11 +33,10 @@ static NSString *linkv_enable_video = @"linkv_enable_video"; // 开启或关闭�
 
 + (instancetype)createEngine:(NSString *)appId
                       appKey:(NSString *)appKey
-                   isTestEnv:(BOOL)isTestEnv
                   completion:(LVCodeCompletion)completion
                     delegate:(id<LVRoomDelegate, StrangerChatDelegate, LVIMReceiveMessageDelegate>)delegate; {
 
-    StrangerChat *chat = [self createEngine:SDK_TYPE_LVRTC rtcAppId:appId rtcAppKey:appKey imAppId:appId imAppKey:appKey isTestEnv:isTestEnv completion:completion];
+    StrangerChat *chat = [self createEngineWithAppId:appId appKey:appKey completion:completion];
     
     [[LVIMSDK sharedInstance] setGlobalReceiveMessageDelegate:chat];
     chat.chatDelegate = delegate;

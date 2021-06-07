@@ -5,7 +5,7 @@
 //  Created by Wing on 2020/9/28.
 //
 
-#import <LinkV_Zego_IM_iOS/LVRTMEngine.h>
+#import <LinkV-Communication/LVCEngine.h>
 
 @protocol StrangerChatDelegate <NSObject>
 
@@ -85,11 +85,10 @@
 
 @end
 
-@interface StrangerChat : LVRTMEngine
+@interface StrangerChat : LVCEngine
 
 + (instancetype)createEngine:(NSString *)appId
                       appKey:(NSString *)appKey
-                   isTestEnv:(BOOL)isTestEnv
                   completion:(LVCodeCompletion)completion
                     delegate:(id<LVRoomDelegate, StrangerChatDelegate, LVIMReceiveMessageDelegate>)delegate;
 
