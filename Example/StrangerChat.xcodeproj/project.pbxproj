@@ -67,6 +67,7 @@
 		20E5D50925480400003A3B3C /* LVGiftCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 20E5D50525480400003A3B3C /* LVGiftCell.m */; };
 		20E5D50A25480400003A3B3C /* LVGiftView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20E5D50825480400003A3B3C /* LVGiftView.m */; };
 		20E5D51E25498742003A3B3C /* LVPresentStaticGiftView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20E5D51D25498742003A3B3C /* LVPresentStaticGiftView.m */; };
+		5F660F51D95D39B8E29E8A5E /* libPods-StrangerChat_Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA25A7A1455B52E8B8620343 /* libPods-StrangerChat_Example.a */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -81,8 +82,7 @@
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
-		C151A1DFB2FDFA202DCA6E6A /* Pods_StrangerChat_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8CEC13F17AD01D53CF6DD0D /* Pods_StrangerChat_Example.framework */; };
-		F3412FD169627EA46D0DC410 /* Pods_StrangerChat_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E97A4420FF7CF817C462685 /* Pods_StrangerChat_Tests.framework */; };
+		CB6AD71A4A285C5699F99965 /* libPods-StrangerChat_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9F67A7995A3D3605BCDA87 /* libPods-StrangerChat_Tests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -183,6 +183,7 @@
 		20E5D51C25498742003A3B3C /* LVPresentStaticGiftView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LVPresentStaticGiftView.h; sourceTree = "<group>"; };
 		20E5D51D25498742003A3B3C /* LVPresentStaticGiftView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LVPresentStaticGiftView.m; sourceTree = "<group>"; };
 		3E508D61485ACDDA00891975 /* Pods-StrangerChat_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StrangerChat_Example.release.xcconfig"; path = "Target Support Files/Pods-StrangerChat_Example/Pods-StrangerChat_Example.release.xcconfig"; sourceTree = "<group>"; };
+		5E9F67A7995A3D3605BCDA87 /* libPods-StrangerChat_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StrangerChat_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58A195388D20070C39A /* StrangerChat_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StrangerChat_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -203,13 +204,12 @@
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		90CED590429738DDD8587AC2 /* Pods-StrangerChat_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StrangerChat_Example.debug.xcconfig"; path = "Target Support Files/Pods-StrangerChat_Example/Pods-StrangerChat_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		9E97A4420FF7CF817C462685 /* Pods_StrangerChat_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StrangerChat_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA25A7A1455B52E8B8620343 /* libPods-StrangerChat_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StrangerChat_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA9387EDD3F0710F90D9308A /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		B34A7440317BAAE37889BBCD /* StrangerChat.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = StrangerChat.podspec; path = ../StrangerChat.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		B9DE1B52429D660CC725EDEF /* Pods-StrangerChat_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StrangerChat_Tests.debug.xcconfig"; path = "Target Support Files/Pods-StrangerChat_Tests/Pods-StrangerChat_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		D55E69A84C52844AFE5DDF96 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		E67AB2F1BB655F926592B178 /* Pods-StrangerChat_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StrangerChat_Tests.release.xcconfig"; path = "Target Support Files/Pods-StrangerChat_Tests/Pods-StrangerChat_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		F8CEC13F17AD01D53CF6DD0D /* Pods_StrangerChat_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StrangerChat_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,7 +220,7 @@
 				6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */,
 				6003F592195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F58E195388D20070C39A /* Foundation.framework in Frameworks */,
-				C151A1DFB2FDFA202DCA6E6A /* Pods_StrangerChat_Example.framework in Frameworks */,
+				5F660F51D95D39B8E29E8A5E /* libPods-StrangerChat_Example.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,7 +231,7 @@
 				6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */,
 				6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */,
-				F3412FD169627EA46D0DC410 /* Pods_StrangerChat_Tests.framework in Frameworks */,
+				CB6AD71A4A285C5699F99965 /* libPods-StrangerChat_Tests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,8 +435,8 @@
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,
 				6003F5AF195388D20070C39A /* XCTest.framework */,
-				F8CEC13F17AD01D53CF6DD0D /* Pods_StrangerChat_Example.framework */,
-				9E97A4420FF7CF817C462685 /* Pods_StrangerChat_Tests.framework */,
+				AA25A7A1455B52E8B8620343 /* libPods-StrangerChat_Example.a */,
+				5E9F67A7995A3D3605BCDA87 /* libPods-StrangerChat_Tests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -523,6 +523,7 @@
 				6003F587195388D20070C39A /* Frameworks */,
 				6003F588195388D20070C39A /* Resources */,
 				0CBCFF5C8107ACAF01D93D68 /* [CP] Embed Pods Frameworks */,
+				75CD51FCC950F6CBD9B60FF9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -563,7 +564,7 @@
 				ORGANIZATIONNAME = wangyansnow;
 				TargetAttributes = {
 					6003F589195388D20070C39A = {
-						DevelopmentTeam = 3GQ863YBTH;
+						DevelopmentTeam = 56KLR2NSW8;
 					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
@@ -657,21 +658,11 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-StrangerChat_Example/Pods-StrangerChat_Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
-				"${BUILT_PRODUCTS_DIR}/LinkV_Zego_IM_iOS/LinkV_Zego_IM_iOS.framework",
-				"${PODS_ROOT}/LinkV_Zego_iOS/LinkV_Zego_iOS/Frameworks/LinkV.framework",
-				"${BUILT_PRODUCTS_DIR}/LinkV_Zego_iOS/LinkV_Zego_iOS.framework",
-				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
-				"${BUILT_PRODUCTS_DIR}/StrangerChat/StrangerChat.framework",
+				"${PODS_ROOT}/LinkV-Communication/LVCEngine/framework/LinkV.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LinkV_Zego_IM_iOS.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LinkV.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LinkV_Zego_iOS.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/StrangerChat.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -720,6 +711,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		75CD51FCC950F6CBD9B60FF9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-StrangerChat_Example/Pods-StrangerChat_Example-resources.sh",
+				"${PODS_ROOT}/LinkV-Communication/LVCEngine/resources/default.metallib",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/default.metallib",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-StrangerChat_Example/Pods-StrangerChat_Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -881,7 +890,7 @@
 			baseConfigurationReference = 90CED590429738DDD8587AC2 /* Pods-StrangerChat_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 3GQ863YBTH;
+				DEVELOPMENT_TEAM = 56KLR2NSW8;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "StrangerChat/StrangerChat-Prefix.pch";
 				INFOPLIST_FILE = "StrangerChat/StrangerChat-Info.plist";
@@ -898,7 +907,7 @@
 			baseConfigurationReference = 3E508D61485ACDDA00891975 /* Pods-StrangerChat_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 3GQ863YBTH;
+				DEVELOPMENT_TEAM = 56KLR2NSW8;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "StrangerChat/StrangerChat-Prefix.pch";
 				INFOPLIST_FILE = "StrangerChat/StrangerChat-Info.plist";

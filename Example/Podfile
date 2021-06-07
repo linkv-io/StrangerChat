@@ -2,7 +2,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 source 'https://cdn.cocoapods.org/'
 source  'https://gitbj.joyme.sg/liveme-btb/LinkV_Podspec.git'
 
-use_frameworks!
+# use_frameworks!
 
 platform :ios, '9.0'
 

@@ -1,11 +1,9 @@
 PODS:
   - IQKeyboardManager (6.5.6)
-  - LinkV_Zego_IM_iOS (0.5):
-    - LinkV_Zego_iOS
-  - LinkV_Zego_iOS (1.0)
+  - LinkV-Communication (0.0.2)
   - Masonry (1.1.0)
-  - StrangerChat (0.1.0):
-    - LinkV_Zego_IM_iOS
+  - StrangerChat (0.1.1):
+    - LinkV-Communication
 
 DEPENDENCIES:
   - IQKeyboardManager
@@ -13,11 +11,9 @@ DEPENDENCIES:
   - StrangerChat (from `../`)
 
 SPEC REPOS:
-  https://gitbj.joyme.sg/liveme-btb/LinkV_Podspec.git:
-    - LinkV_Zego_IM_iOS
-    - LinkV_Zego_iOS
   https://github.com/CocoaPods/Specs.git:
     - IQKeyboardManager
+    - LinkV-Communication
     - Masonry
 
 EXTERNAL SOURCES:
@@ -26,11 +22,10 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   IQKeyboardManager: 2a6e97afdafc7becf0cb17a9a8d795e3a980717f
-  LinkV_Zego_IM_iOS: 1ef1d63fdadea99b04452c686a064f4695081668
-  LinkV_Zego_iOS: b570eaddcb359c928b76e49cfcee48d1a1b55d92
+  LinkV-Communication: ee6c9655b95c696825bc33add3ce3f5009350a72
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
-  StrangerChat: d04ef2eebdc42dc35726c6353a159fb18f4a5925
+  StrangerChat: b484f0a26ff98797b12febe2fd31ce339b82761d
 
-PODFILE CHECKSUM: 2032db9c70c579532d7e1663acd435cc8e885242
+PODFILE CHECKSUM: 4e3a0a4a997e96cfdbe16cce88fb77dd23c1bc7a
 
 COCOAPODS: 1.9.3
