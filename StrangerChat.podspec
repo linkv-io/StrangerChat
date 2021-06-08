@@ -24,8 +24,8 @@ TODO: Add long description of the pod here.
   s.homepage         = 'https://github.com/linkv-io/StrangerChat'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'wangyansnow' => 'wangyan6@conew.com' }
-  s.source           = { :git => 'https://github.com/wangyansnow/StrangerChat.git', :tag => s.version.to_s }
+  s.author           = { 'wangyansnow' => 'wangyan6@linkv.sg' }
+  s.source           = { :git => 'https://github.com/linkv-io/StrangerChat.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '9.0'
