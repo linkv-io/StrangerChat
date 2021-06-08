@@ -200,7 +200,7 @@ static NSString *linkv_enable_video = @"linkv_enable_video"; // 开启或关闭�
 
 - (int)onIMReceiveMessageHandler:(NSString *)owner immsg:(LVIMMessage *)immsg waitings:(int)waitings packetSize:(int)packetSize waitLength:(int)waitLength bufferSize:(int)bufferSize {
 
-    if (!immsg.mContent || !immsg.mExtend1) return 0;
+    if (!immsg.mContent) return 0;
     NSString *type = [[NSString alloc] initWithData:immsg.mExtend1 encoding:NSUTF8StringEncoding];
     
     dispatch_async(dispatch_get_main_queue(), ^{
