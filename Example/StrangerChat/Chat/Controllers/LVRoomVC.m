@@ -560,6 +560,7 @@ static int smallH = 170;
 }
 
 - (void)endCall {
+    [self.engine hangupCall:self.user.uid extra:nil callback:nil];
     [self close];
 }
 
