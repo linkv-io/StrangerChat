@@ -35,3 +35,7 @@ Carthage/Build
 # `pod install` in .travis.yml
 #
 Example/Pods/
+
+Example/StrangerChat/Tools/AppSign+appSign.h
+Example/StrangerChat/Tools/AppSign+appSign.m
+

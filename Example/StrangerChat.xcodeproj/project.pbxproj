@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2071C874267C4E4D00E9138A /* AppSign+appSign.m in Sources */ = {isa = PBXBuildFile; fileRef = 2071C872267C4E4D00E9138A /* AppSign+appSign.m */; };
+		2071C877267C4E5B00E9138A /* AppSign.m in Sources */ = {isa = PBXBuildFile; fileRef = 2071C876267C4E5B00E9138A /* AppSign.m */; };
 		207CCD17266E17DA0084541B /* LVMsgCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 207CCD15266E17DA0084541B /* LVMsgCell.m */; };
 		207CCD18266E17DA0084541B /* LVMsgListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 207CCD16266E17DA0084541B /* LVMsgListView.m */; };
 		20909F602520CDBB00CCFE49 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 20909F5C2520CDBB00CCFE49 /* MBProgressHUD.m */; };
@@ -98,6 +100,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2071C872267C4E4D00E9138A /* AppSign+appSign.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppSign+appSign.m"; sourceTree = "<group>"; };
+		2071C873267C4E4D00E9138A /* AppSign+appSign.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppSign+appSign.h"; sourceTree = "<group>"; };
+		2071C875267C4E5B00E9138A /* AppSign.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppSign.h; sourceTree = "<group>"; };
+		2071C876267C4E5B00E9138A /* AppSign.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppSign.m; sourceTree = "<group>"; };
 		207CCD13266E17DA0084541B /* LVMsgListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LVMsgListView.h; sourceTree = "<group>"; };
 		207CCD14266E17DA0084541B /* LVMsgCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LVMsgCell.h; sourceTree = "<group>"; };
 		207CCD15266E17DA0084541B /* LVMsgCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LVMsgCell.m; sourceTree = "<group>"; };
@@ -292,6 +298,10 @@
 		20BEE52825358EEF0025AD0D /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				2071C875267C4E5B00E9138A /* AppSign.h */,
+				2071C876267C4E5B00E9138A /* AppSign.m */,
+				2071C873267C4E4D00E9138A /* AppSign+appSign.h */,
+				2071C872267C4E4D00E9138A /* AppSign+appSign.m */,
 				20BEE5C82537338A0025AD0D /* LVHelper.h */,
 				20BEE5C92537338A0025AD0D /* LVHelper.m */,
 			);
@@ -750,6 +760,7 @@
 			files = (
 				20E5D2562548038F003A3B3C /* ShakeLabel.m in Sources */,
 				20E5D4F72548038F003A3B3C /* CADisplayLink+FXWeakTarget.m in Sources */,
+				2071C877267C4E5B00E9138A /* AppSign.m in Sources */,
 				20BEE5CA2537338A0025AD0D /* LVHelper.m in Sources */,
 				207CCD18266E17DA0084541B /* LVMsgListView.m in Sources */,
 				20E5D51E25498742003A3B3C /* LVPresentStaticGiftView.m in Sources */,
@@ -771,6 +782,7 @@
 				20BEE52D2536A0D30025AD0D /* LVRoomVC.m in Sources */,
 				20BEE5492536ACCD0025AD0D /* LVMainVC.m in Sources */,
 				20E5D4F82548038F003A3B3C /* FXKeyframeAnimation.m in Sources */,
+				2071C874267C4E4D00E9138A /* AppSign+appSign.m in Sources */,
 				20E5D4F92548038F003A3B3C /* FXImageDecodeOperation.m in Sources */,
 				20909F602520CDBB00CCFE49 /* MBProgressHUD.m in Sources */,
 				20BEE5EB25382D130025AD0D /* LVCallCardView.m in Sources */,
@@ -857,7 +869,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -890,7 +902,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
